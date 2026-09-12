@@ -28,11 +28,15 @@ The keymap has three layers:
 
 - `QWERTY`: the normal typing layer.
 - `CODE`: hold the Space thumb key for numbers and programming symbols. Tapping it still sends Space.
-- `NAV/SYS`: hold the Escape thumb key for navigation, editing, screenshots, media, Bluetooth selection, brightness, and Studio access. Tapping it still sends Escape.
+- `NAV/SYS`: hold the Escape thumb key for navigation, Divvy shortcuts, screenshots, media, Bluetooth selection, brightness, and Studio access. Tapping it still sends Escape.
 
 To unlock Studio, hold the Escape thumb key to enter `NAV/SYS`, then tap the `V` key on the left half's bottom row. Studio changes are runtime changes stored on the keyboard; the checked-in keymap remains the build-time baseline.
 
-The `NAV/SYS` screenshot shortcuts are on the left half's bottom row: the leftmost key sends macOS `Cmd+Shift+3` and the next key sends `Cmd+Shift+4`.
+The `NAV/SYS` screenshot shortcuts remain on the left half's bottom row. The leftmost key sends macOS `Control+Shift+Command+3` and the next key sends `Control+Shift+Command+4`, which copy the full screen or a selection to the clipboard.
+
+The right side of `NAV/SYS` sends Divvy's global shortcuts: `Ctrl+1`, `Ctrl+2`, `Ctrl+3`, `Ctrl+4`, `Ctrl+6`, `Ctrl+7`, and `Ctrl+8`. The `Ctrl+2`/`Ctrl+3` pair and `Ctrl+6`/`Ctrl+7`/`Ctrl+8` group are kept physically close, while the arrow cluster remains available.
+
+On the base layer, tap the rightmost bottom key for `"` and hold it for Right Shift. Apostrophe remains on the home row above it.
 
 ## Firmware Files
 
