@@ -36,7 +36,7 @@ The `NAV/SYS` screenshot shortcuts remain on the left half's bottom row. The lef
 
 The right side of `NAV/SYS` sends Divvy's global shortcuts: `Ctrl+1`, `Ctrl+2`, `Ctrl+3`, `Ctrl+4`, `Ctrl+6`, `Ctrl+7`, and `Ctrl+8`. The `Ctrl+2`/`Ctrl+3` pair and `Ctrl+6`/`Ctrl+7`/`Ctrl+8` group are kept physically close, while the arrow cluster remains available.
 
-On the base layer, tap the rightmost bottom key for `"` and hold it for Right Shift. Apostrophe remains on the home row above it.
+On the base layer, tap the rightmost bottom key for `"` and hold it for Right Alt/Option. Apostrophe remains on the home row above it.
 
 ## Firmware Files
 
