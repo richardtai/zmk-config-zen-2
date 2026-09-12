@@ -2,9 +2,7 @@
 
 ![Corne-ish Zen Logo](img/Zen_R3_sticker.png)
 
-**NOTE: This is currently using the code contained in the Pull Request to ZMK. Once this code is merged into ZMK Main, I will update this repo to point correctly.**
-
-This repo is the official configuration of the Corne-ish Zen V2 low profile wireless mechanical keyboard. Use it to develop your own keymap and easily build your own ZMK firmware to run on your Corne-ish Zen. These steps will get you using your keymap on your keyboard in the fastest time possible. It uses the GitHub Actions feature to build your firmware online, rather than setting up a complex tool chain on your local computer.
+This is a custom configuration for the Corne-ish Zen V2 low profile wireless mechanical keyboard. It builds against current ZMK from the `zmkfirmware/zmk` repository and uses GitHub Actions, so a local ZMK toolchain is not required.
 
 If you are looking to dig deeper into ZMK and develop new functionality, it is recommended to follow the steps of installing ZMK as found on the official ZMK documentation site (linked below).
 
@@ -18,20 +16,34 @@ V2 PCBs were only used in the 3rd GB round (R3). To confirm which version you ne
 
 ## Instructions
 
-1. Log into, or sign up for, your personal GitHub account.
-2. Fork this repository to your local computer, and then push it to your GitHub personal account. ([instructions](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
-3. Edit the keymap file(s) to suit your needs
-4. Commit and push your changes to your personal repo. Upon pushing it, GitHub Actions will start building a new version of your firmware with the updated keymap.
+1. Edit `config/corneish_zen.keymap` to suit your needs.
+2. Commit and push your changes to GitHub. GitHub Actions will build the firmware.
+3. Download the `firmware` artifact from the completed **Build** workflow run.
+
+### ZMK Studio
+
+The left/central firmware is built with ZMK Studio support over USB. After flashing it, connect the left half to your Mac and open the ZMK Studio app or [zmk.studio](https://zmk.studio/).
+
+The keymap has three layers:
+
+- `QWERTY`: the normal typing layer.
+- `CODE`: hold the Space thumb key for numbers and programming symbols. Tapping it still sends Space.
+- `NAV/SYS`: hold the Escape thumb key for navigation, editing, screenshots, media, Bluetooth selection, brightness, and Studio access. Tapping it still sends Escape.
+
+To unlock Studio, hold the Escape thumb key to enter `NAV/SYS`, then tap the `V` key on the left half's bottom row. Studio changes are runtime changes stored on the keyboard; the checked-in keymap remains the build-time baseline.
+
+The `NAV/SYS` screenshot shortcuts are on the left half's bottom row: the leftmost key sends macOS `Cmd+Shift+3` and the next key sends `Cmd+Shift+4`.
 
 ## Firmware Files
 
 To locate your firmware files...
 
-1. log into GitHub and navigate to your personal config repository you just uploaded your keymap changes to.
-2. Click "Actions" in the main navigation, and in the left navigation click the "Build" link.
-3. Select the desired workflow run in the centre area of the page (based on date and time of the build you wish to use). You can also start a new build from this page by clicking the "Run workflow" button.
-4. After clicking the desired workflow run, you should be presented with a section at the bottom of the page called "Artifacts". This section contains the results of your build, in a file called "firmware.zip"
-5. Download the firmware zip archive and extract the two .uf2 files. They are named according to which side they need to be flashed to.
-6. Flash the firmware to your keyboard by double-clicking the reset button to put the it in bootloader mode. A window should pop up showing the contents of the storage on the keyboard. Drag and drop the correct .uf2 file into the window. When the upload is complete the window will close and the keyboard will exit bootloader mode.
+1. In GitHub, open **Actions**, select **Build**, and open the workflow run you want.
+2. Download the `firmware` artifact and extract the two `.uf2` files. Use the file whose name identifies the left/central half for the left half, and the right-named file for the right half.
+3. Connect one half by USB and double-tap its reset button. A bootloader drive will appear.
+4. Drag the matching `.uf2` file onto that drive. The keyboard will reboot when flashing finishes.
+5. Repeat for the other half with its matching file.
+
+Flash the left/central file first when upgrading to this Studio-enabled build. A normal firmware update preserves Bluetooth pairing/settings; use a settings-reset firmware only if the halves actually fail to reconnect afterward.
 
 Your keyboard is now ready to use.
